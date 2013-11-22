@@ -2,4 +2,4 @@
 
 /* Filters */
 
-angular.module('whatsMyTimeZone.filters', []);
+angular.module('localtime.io.filters', []);

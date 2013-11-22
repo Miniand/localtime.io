@@ -1,5 +1,31 @@
 body {
 	text-align: center;
-	background-color: gray;
+	background-color: #333;
 	color: white;
+}
+
+.local-time {
+	font-size: 2em;
+	display: block;
+	color: #FFF;
+	font-weight: bold;
+	font-size: 1.5em;
+}
+
+.local-timezone {
+	font-weight: bold;
+}
+
+.local-message {
+	font-size: 1.5em;
+	color: #666;
+	margin: 1.5em;
+}
+
+.source-date {
+	font-size: 2em;
+	margin: 1.5em;
+	padding: 0.5em;
+	width: 50%;
+	text-align: center;
 }

@@ -2,4 +2,4 @@
 
 /* Services */
 
-angular.module('whatsMyTimeZone.services', []);
+angular.module('localtime.io.services', []);

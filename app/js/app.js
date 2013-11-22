@@ -1,11 +1,11 @@
 'use strict';
 
-angular.module('whatsMyTimeZone', [
+angular.module('localtime.io', [
 	'ngRoute',
-	'whatsMyTimeZone.filters',
-	'whatsMyTimeZone.services',
-	'whatsMyTimeZone.directives',
-	'whatsMyTimeZone.controllers'
+	'localtime.io.filters',
+	'localtime.io.services',
+	'localtime.io.directives',
+	'localtime.io.controllers'
 ]).
 config(['$routeProvider', function($routeProvider) {
 	$routeProvider.when('/', {

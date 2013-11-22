@@ -3,4 +3,4 @@
 /* Directives */
 
 
-angular.module('whatsMyTimeZone.directives', []);
+angular.module('localtime.io.directives', []);

@@ -2,7 +2,7 @@
 
 /* Controllers */
 
-angular.module('whatsMyTimeZone.controllers', []).
+angular.module('localtime.io.controllers', []).
 	controller('HomeCtrl', ['$scope', '$timeout', '$location', function($scope, $timeout, $location) {
 		var inputWait;
 		$scope.linePivot = 630;
@@ -17,8 +17,6 @@ angular.module('whatsMyTimeZone.controllers', []).
 			return rawPos % $scope.offsetRange;
 		};
 		$scope.rawDate = $location.search().d || 'Thursday 8PM PST';
-		$scope.localLinePos = $scope.offsetToLinePos(
-			new Date().getTimezoneOffset());
 		$scope.$watch('rawDate', function(rawDate) {
 			if (rawDate) {
 				$location.search('d', rawDate);
@@ -29,7 +27,10 @@ angular.module('whatsMyTimeZone.controllers', []).
 		});
 		$scope.$watch('parsed', function(parsed) {
 			if (parsed) {
-				$scope.local = $scope.parsed.start.date().toString();
+				$scope.local = moment($scope.parsed.start.date());
+				$scope.localTime = $scope.local.format(
+					"dddd, MMMM Do YYYY, h:mm:ss a");
+				$scope.localTimezone = $scope.local.format("Z");
 				$scope.sourceOffset = $scope.parsed.start.timezoneOffset;
 				$scope.sourceLinePos = $scope.offsetToLinePos(
 					$scope.sourceOffset);
