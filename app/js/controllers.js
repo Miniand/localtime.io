@@ -8,6 +8,7 @@ angular.module('localtime.io.controllers', []).
 		$scope.linePivot = 630;
 		$scope.svgWidth = 1405;
 		$scope.offsetRange = 1440;
+		$scope.lineWidth = Math.round($scope.svgWidth / 24);
 		$scope.offsetToLinePos = function(offset) {
 			var rawPos = $scope.linePivot - offset * $scope.svgWidth /
 				$scope.offsetRange;
@@ -26,7 +27,8 @@ angular.module('localtime.io.controllers', []).
 			}
 		});
 		$scope.$watch('parsed', function(parsed) {
-			if (parsed) {
+			console.log(parsed);
+			if (parsed && parsed.start.timezoneOffset) {
 				$scope.local = moment($scope.parsed.start.date());
 				$scope.localTime = $scope.local.format(
 					"dddd, MMMM Do YYYY, h:mm:ss a");
@@ -36,6 +38,7 @@ angular.module('localtime.io.controllers', []).
 					$scope.sourceOffset);
 			} else {
 				$scope.local = null;
+				$scope.sourceLinePos = null;
 			}
 		});
 	}]);

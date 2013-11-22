@@ -4,11 +4,12 @@
 
 <div>
 	<svg id="globe" viewBox="0 0 1405 601" style="width:70%;max-height:60%;">
-		<g
-			inkscape:label="Ebene 1"
-			inkscape:groupmode="layer"
-			id="layer1"
-			transform="translate(470,892.401)">
+		<defs>
+			<filter id="myBlur">
+				<feGaussianBlur in="SourceGraphic" stdDeviation="5" />
+			</filter>
+		</defs>
+		<g transform="translate(470,892.401)">
 			<path
 				style="fill:#cccccc;fill-opacity:1"
 				d="m -77.771856,-292.77894 c -5.06069,-1.8379 -6.50359,-3.71851 -5.29401,-6.89994 0.97893,-2.57479 4.06585,-3.79446 4.06585,-1.60647 0,0.5867 1.05861,2.4992 2.35247,4.25 4.56907,6.18271 4.535,6.31173 -1.12431,4.25641 z"
@@ -1074,10 +1075,10 @@
 				id="path2010" />
 		</g>
 		<!-- Lines -->
-		<line ng-show="sourceLinePos" x1="{{sourceLinePos}}" y1="0" x2="{{sourceLinePos}}" y2="601" style="stroke:rgba(255,0,0,0.2);stroke-width:58;" />
+		<rect id="sourceLine" ng-show="sourceLinePos" x="{{sourceLinePos-lineWidth/2}}" y1="0" width="{{lineWidth}}" height="601" style="fill:rgba(255,170,0,0.2);" filter="url(#myBlur)" />
 	</svg>
 </div>
 
-<div class="local-message">
+<div class="local-message" ng-show="local">
 	is <span class="local-time">{{localTime}}</span> in your local time <span class="local-timezone">{{localTimezone}}</span>
 </div>
