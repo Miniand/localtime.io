@@ -3,7 +3,7 @@
 /* Controllers */
 
 angular.module('localtime.io.controllers', []).
-	controller('HomeCtrl', ['$scope', '$timeout', '$location', function($scope, $timeout, $location) {
+	controller('HomeCtrl', ['$scope', '$location', function($scope, $location) {
 		var inputWait;
 		$scope.linePivot = 630;
 		$scope.svgWidth = 1405;
@@ -27,7 +27,6 @@ angular.module('localtime.io.controllers', []).
 			}
 		});
 		$scope.$watch('parsed', function(parsed) {
-			console.log(parsed);
 			if (parsed && parsed.start.timezoneOffset) {
 				$scope.local = moment($scope.parsed.start.date());
 				$scope.localTime = $scope.local.format(
