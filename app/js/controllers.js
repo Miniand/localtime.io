@@ -27,7 +27,7 @@ angular.module('localtime.io.controllers', []).
 			}
 		});
 		$scope.$watch('parsed', function(parsed) {
-			if (parsed && parsed.start.timezoneOffset) {
+			if (parsed && parsed.start.timezoneOffset !== undefined) {
 				$scope.local = moment($scope.parsed.start.date());
 				$scope.localTime = $scope.local.format(
 					"dddd, MMMM Do YYYY, h:mm:ss a");
